@@ -7,7 +7,7 @@ import morfologik.stemming.WordData;
 
 public class Strimmer {
 	public static void main(String[] args) throws Exception {
-		new WindowInterface(0);
+		new WindowInterface(1);
 
 	}
 

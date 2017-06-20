@@ -15,15 +15,15 @@ public class WindowInterface {
                 window.setVisible(true);
             };
             break;
-//            case 1: {
-//                window = new Window();
-//                JTabbedPane jtp = new JTabbedPane();
-//                jtp.addTab("TF/TF-IDF", new TFContainer());
-//                jtp.addTab("LSA/RAKE", new LSAContainer());
-//                window.add(jtp);
-//                window.setVisible(true);
-//            };
-//            break;
+            case 1: {
+                window = new Window();
+                JTabbedPane jtp = new JTabbedPane();
+                jtp.addTab("TF/TF-IDF", new TFContainer());
+                jtp.addTab("LSA/RAKE", new LSAContainer());
+                window.add(jtp);
+                window.setVisible(true);
+            };
+            break;
         }
     }
 }
