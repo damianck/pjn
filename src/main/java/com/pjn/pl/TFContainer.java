@@ -37,7 +37,7 @@ public class TFContainer extends JPanel{
     private SpringLayout layout;
     private JTextPane input;
     private JLabel inputLabel;
-    private JButton analiza,wykresSlupkowy,chmuraSlow;
+    private JButton analiza, wykresSlupkowy, chmuraSlow;
     private final String NAZWA_PLIKU = "tekst";
 
     public TFContainer() {
@@ -46,7 +46,6 @@ public class TFContainer extends JPanel{
     }
 
     private void createContainer() {
-
         setLayout(layout);
 
 
@@ -103,9 +102,7 @@ public class TFContainer extends JPanel{
         analiza.addActionListener(new Operacje(1));
         wykresSlupkowy.addActionListener(new Operacje(2));
         chmuraSlow.addActionListener(new Operacje(3));
-//        add(analiza);
-//        add(wykresSlupkowy);
-//        add(chmuraSlow);
+
         add(inputLabel);
         add(panel);
         add(input);

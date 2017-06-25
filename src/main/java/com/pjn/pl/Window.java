@@ -11,8 +11,8 @@ public class Window extends JFrame {
         super("PJN");
 
         JTabbedPane jtp = new JTabbedPane();
-        jtp.addTab("TF/TF-IDF", new TFContainer());
-        jtp.addTab("LSA/RAKE", new LSAContainer());
+        jtp.addTab("Identyfikacja TF | TF-IDF", new TFContainer());
+        jtp.addTab("Identyfikacja LSA | RAKE", new LSAContainer());
         add(jtp);
         setSize(WIDTH, HEIGHT);
     }
