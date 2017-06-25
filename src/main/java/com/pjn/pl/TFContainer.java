@@ -25,14 +25,8 @@ import com.kennycason.kumo.font.scale.SqrtFontScalar;
 import com.kennycason.kumo.nlp.FrequencyAnalyzer;
 import com.kennycason.kumo.palette.ColorPalette;
 
-/**
- * Created by miky on 20/06/2017.
- */
 public class TFContainer extends JPanel{
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
     private SpringLayout layout;
     private JTextPane input;
@@ -48,12 +42,10 @@ public class TFContainer extends JPanel{
     private void createContainer() {
         setLayout(layout);
 
-
         analiza = new JButton("Analizuj tekst");
         wykresSlupkowy = new JButton("Wyświetl wykres słupkowy");
         chmuraSlow = new JButton("Wyświetl chmurę słów");
-
-        inputLabel = new JLabel("Wprowadź tekst do analizy");
+        inputLabel = new JLabel("\\/~*~INPUT~*~\\/");
 
         input = new JTextPane();
         input.setSize(600, 400);
@@ -68,13 +60,12 @@ public class TFContainer extends JPanel{
         panel.add(analiza, BorderLayout.CENTER);
         panel.add(chmuraSlow, BorderLayout.LINE_END);
 
-        layout.putConstraint(SpringLayout.WEST, panel, 10, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.SOUTH, panel, -10, SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, panel, -10, SpringLayout.EAST, this);
-
-        layout.putConstraint(SpringLayout.WEST, wykresSlupkowy, 10, SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.SOUTH, wykresSlupkowy, -40, SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, wykresSlupkowy, -10, SpringLayout.EAST, this);
+        layout.putConstraint(SpringLayout.WEST, wykresSlupkowy, 10,
+                SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.SOUTH, wykresSlupkowy, -40,
+                SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.EAST, wykresSlupkowy, -10,
+                SpringLayout.EAST, this);
 
         layout.putConstraint(SpringLayout.WEST, chmuraSlow, 10,
                 SpringLayout.WEST, this);
@@ -132,7 +123,6 @@ public class TFContainer extends JPanel{
                 case 1: {
                     // TF
                     Map<String, Integer> occurrences = new HashMap<String, Integer>();
-
                     String[] array = input.getText().split(" ");
 
                     for ( String word : array ) {
@@ -146,8 +136,6 @@ public class TFContainer extends JPanel{
                     for(Map.Entry<String, Integer> entry : occurrences.entrySet()) {
                         System.out.println(entry.getKey()+"/"+entry.getValue());
                     }
-
-
                     //TF-IDF
                     Map<String, Integer> oc = new HashMap<String, Integer>();
 
@@ -167,29 +155,30 @@ public class TFContainer extends JPanel{
                     }
                 };
                 break;
-                case 2:{
+                case 2: {
                     //TF
                     Map<String, Integer> occurrences = new HashMap<String, Integer>();
-
                     String[] array = input.getText().split(" ");
 
-                    for ( String word : array ) {
+                    for (String word : array) {
                         Integer oldCount = occurrences.get(word);
-                        if ( oldCount == null ) {
+                        if (oldCount == null) {
                             oldCount = 0;
                         }
                         occurrences.put(word, oldCount + 1);
                     }
                     ArrayList<Object[]> lista = new ArrayList<Object[]>();
 
-                    for(Map.Entry<String, Integer> entry : occurrences.entrySet()) {
-                        Object[] tablica = {entry.getKey(),entry.getValue()};
+                    for (Map.Entry<String, Integer> entry : occurrences.entrySet()) {
+                        Object[] tablica = {entry.getKey(), entry.getValue()};
                         lista.add(tablica);
-                        //System.out.println(entry.getKey()+"/"+entry.getValue());
                     }
-
-                    Chart ws = new Chart("Wykres slupkowy", "Wykres slupkowy",lista);
-                    ws.rysujWykres();
+                    EventQueue.invokeLater(() -> {
+                        Chart frame = new Chart("Wykres slupkowy", "Wykres slupkowy", lista);
+                        frame.pack();
+                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        frame.setVisible(true);
+                    });
                 };
                 break;
                 case 3:{
@@ -218,7 +207,6 @@ public class TFContainer extends JPanel{
 
                 };
                 break;
-
             }
         }
     }
