@@ -1,7 +1,5 @@
 package com.pjn.pl;
 
-import org.jfree.chart.ChartPanel;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,7 +10,6 @@ public class AnalysisResults extends JFrame {
     public AnalysisResults(String applicationTitle, String date) {
         super(applicationTitle);
         setSize(600, 150);
-        System.out.println(date);
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setSize(new java.awt.Dimension(600, 100));

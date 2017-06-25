@@ -12,9 +12,6 @@ import java.util.Locale;
 
 import morfologik.stemming.WordData;
 
-/**
- * Created by miky on 20/06/2017.
- */
 public class MainContainer extends JPanel {
 
 
@@ -26,7 +23,7 @@ public class MainContainer extends JPanel {
     private JTextPane input;
     private AbstractDocument dokument;
     private JTextArea output;
-    private JLabel inputLabel, outputLabel, separator;
+    private JLabel inputLabel, outputLabel;
 
     public MainContainer() {
         layout = new SpringLayout();
@@ -39,7 +36,6 @@ public class MainContainer extends JPanel {
 
         inputLabel = new JLabel("Insert text here");
         outputLabel = new JLabel("Results output");
-        separator = new JLabel("<==>");
 
         input = new JTextPane();
         input.setSize(200, 400);
@@ -70,11 +66,6 @@ public class MainContainer extends JPanel {
         layout.putConstraint(SpringLayout.EAST, input, -320,
                 SpringLayout.EAST, this);
 
-        layout.putConstraint(SpringLayout.EAST, separator, -284,
-                SpringLayout.EAST, this);
-        layout.putConstraint(SpringLayout.NORTH, separator, 300,
-                SpringLayout.NORTH, this);
-
         layout.putConstraint(SpringLayout.EAST, output, -5,
                 SpringLayout.EAST, this);
         layout.putConstraint(SpringLayout.NORTH, output, 50,
@@ -92,7 +83,6 @@ public class MainContainer extends JPanel {
         add(inputLabel);
         add(outputLabel);
         add(input);
-        add(separator);
         add(output);
     }
 

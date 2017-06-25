@@ -11,6 +11,7 @@ public class Window extends JFrame {
         super("PJN");
 
         JTabbedPane jtp = new JTabbedPane();
+        jtp.addTab("Analiza Morfologiczna", new MainContainer());
         jtp.addTab("Identyfikacja TF | TF-IDF", new TFContainer());
         jtp.addTab("Identyfikacja LSA | RAKE", new LSAContainer());
         add(jtp);
