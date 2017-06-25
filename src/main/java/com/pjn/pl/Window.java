@@ -1,15 +1,19 @@
 package com.pjn.pl;
 
 import javax.swing.*;
-public class Window extends JFrame {
 
+public class Window extends JFrame {
     private static final long serialVersionUID = 1L;
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 600;
 
     public Window() {
         super("PJN");
 
-        setSize(800, 600);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JTabbedPane jtp = new JTabbedPane();
+        jtp.addTab("TF/TF-IDF", new TFContainer());
+        jtp.addTab("LSA/RAKE", new LSAContainer());
+        add(jtp);
+        setSize(WIDTH, HEIGHT);
     }
 }
