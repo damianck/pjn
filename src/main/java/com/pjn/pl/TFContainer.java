@@ -1,7 +1,6 @@
 package com.pjn.pl;
 
-import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -54,29 +53,33 @@ public class TFContainer extends JPanel{
 
         setLayout(layout);
 
+
         analiza = new JButton("Analizuj tekst");
         wykresSlupkowy = new JButton("Wyświetl wykres słupkowy");
         chmuraSlow = new JButton("Wyświetl chmurę słów");
-        inputLabel = new JLabel("\\/~*~INPUT~*~\\/");
+
+        inputLabel = new JLabel("Wprowadź tekst do analizy");
 
         input = new JTextPane();
         input.setSize(600, 400);
 
         //Layout Begin
 
-        layout.putConstraint(SpringLayout.WEST, analiza, 10,
-                SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.SOUTH, analiza, -10,
-                SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, analiza, -10,
-                SpringLayout.EAST, this);
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setPreferredSize(new Dimension(600, 100));
 
-        layout.putConstraint(SpringLayout.WEST, wykresSlupkowy, 10,
-                SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.SOUTH, wykresSlupkowy, -40,
-                SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, wykresSlupkowy, -10,
-                SpringLayout.EAST, this);
+        panel.add(wykresSlupkowy, BorderLayout.LINE_START);
+        panel.add(analiza, BorderLayout.CENTER);
+        panel.add(chmuraSlow, BorderLayout.LINE_END);
+
+        layout.putConstraint(SpringLayout.WEST, panel, 10, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.SOUTH, panel, -10, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.EAST, panel, -10, SpringLayout.EAST, this);
+
+        layout.putConstraint(SpringLayout.WEST, wykresSlupkowy, 10, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.SOUTH, wykresSlupkowy, -40, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.EAST, wykresSlupkowy, -10, SpringLayout.EAST, this);
 
         layout.putConstraint(SpringLayout.WEST, chmuraSlow, 10,
                 SpringLayout.WEST, this);
@@ -104,10 +107,11 @@ public class TFContainer extends JPanel{
         analiza.addActionListener(new Operacje(1));
         wykresSlupkowy.addActionListener(new Operacje(2));
         chmuraSlow.addActionListener(new Operacje(3));
-        add(analiza);
-        add(wykresSlupkowy);
-        add(chmuraSlow);
+//        add(analiza);
+//        add(wykresSlupkowy);
+//        add(chmuraSlow);
         add(inputLabel);
+        add(panel);
         add(input);
     }
 
