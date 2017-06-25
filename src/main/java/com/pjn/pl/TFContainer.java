@@ -15,11 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextPane;
-import javax.swing.SpringLayout;
+import javax.swing.*;
 
 import com.kennycason.kumo.CollisionMode;
 import com.kennycason.kumo.WordCloud;
@@ -68,7 +64,7 @@ public class TFContainer extends JPanel{
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         panel.setPreferredSize(new Dimension(600, 100));
-
+        panel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         panel.add(wykresSlupkowy, BorderLayout.LINE_START);
         panel.add(analiza, BorderLayout.CENTER);
         panel.add(chmuraSlow, BorderLayout.LINE_END);
