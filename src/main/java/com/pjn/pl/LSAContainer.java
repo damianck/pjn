@@ -102,7 +102,7 @@ public class LSAContainer extends JPanel{
                         System.out.println("------------------------RAKE------------------------");
                         String[][] test = rake.getResultsStringTable();
                         for(int i=0; i < test.length; i++) {
-                            System.out.println("S�owo/a: "+test[i][0]+"; Frekwencja: "+test[i][1]);
+                            System.out.println("Słowo/a: "+test[i][0]+"; Frekwencja: "+test[i][1]);
                         }
 
                     } catch (IOException e1) {

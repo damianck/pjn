@@ -55,8 +55,8 @@ public class TFContainer extends JPanel{
         setLayout(layout);
 
         analiza = new JButton("Analizuj tekst");
-        wykresSlupkowy = new JButton("Wy�wietl wykres s�upkowy");
-        chmuraSlow = new JButton("Wy�wietl chmur� s��w");
+        wykresSlupkowy = new JButton("Wyświetl wykres słupkowy");
+        chmuraSlow = new JButton("Wyświetl chmurę słów");
         inputLabel = new JLabel("\\/~*~INPUT~*~\\/");
 
         input = new JTextPane();

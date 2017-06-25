@@ -25,8 +25,8 @@ public class Chart extends ApplicationFrame{
         this.dane = dane;
         JFreeChart barChart = ChartFactory.createBarChart(
                 chartTitle,
-                "S�owa",
-                "Liczebno��",
+                "Słowa",
+                "Liczebność",
                 createDataset(),
                 PlotOrientation.VERTICAL,
                 true, true, false);
