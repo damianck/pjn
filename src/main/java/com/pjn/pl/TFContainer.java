@@ -45,7 +45,7 @@ public class TFContainer extends JPanel{
         analiza = new JButton("Analizuj tekst");
         wykresSlupkowy = new JButton("Wyświetl wykres słupkowy");
         chmuraSlow = new JButton("Wyświetl chmurę słów");
-        inputLabel = new JLabel("\\/~*~INPUT~*~\\/");
+        inputLabel = new JLabel("Wprowadź tekst do analizy");
 
         input = new JTextPane();
         input.setSize(600, 400);
@@ -60,20 +60,13 @@ public class TFContainer extends JPanel{
         panel.add(analiza, BorderLayout.CENTER);
         panel.add(chmuraSlow, BorderLayout.LINE_END);
 
-        layout.putConstraint(SpringLayout.WEST, wykresSlupkowy, 10,
-                SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.SOUTH, wykresSlupkowy, -40,
-                SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, wykresSlupkowy, -10,
-                SpringLayout.EAST, this);
+        layout.putConstraint(SpringLayout.WEST, panel, 10, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.SOUTH, panel, -10, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.EAST, panel, -10, SpringLayout.EAST, this);
 
-        layout.putConstraint(SpringLayout.WEST, chmuraSlow, 10,
-                SpringLayout.WEST, this);
-        layout.putConstraint(SpringLayout.SOUTH, chmuraSlow, -70,
-                SpringLayout.SOUTH, this);
-        layout.putConstraint(SpringLayout.EAST, chmuraSlow, -10,
-                SpringLayout.EAST, this);
-
+        layout.putConstraint(SpringLayout.WEST, wykresSlupkowy, 10, SpringLayout.WEST, this);
+        layout.putConstraint(SpringLayout.SOUTH, wykresSlupkowy, -40, SpringLayout.SOUTH, this);
+        layout.putConstraint(SpringLayout.EAST, wykresSlupkowy, -10, SpringLayout.EAST, this);
         layout.putConstraint(SpringLayout.WEST, inputLabel, 350,
                 SpringLayout.WEST, this);
         layout.putConstraint(SpringLayout.NORTH, inputLabel, 10,
@@ -87,6 +80,7 @@ public class TFContainer extends JPanel{
                 SpringLayout.SOUTH, this);
         layout.putConstraint(SpringLayout.EAST, input, -10,
                 SpringLayout.EAST, this);
+
 
         //Layout End
 
