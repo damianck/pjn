@@ -25,7 +25,7 @@ import com.kennycason.kumo.font.scale.SqrtFontScalar;
 import com.kennycason.kumo.nlp.FrequencyAnalyzer;
 import com.kennycason.kumo.palette.ColorPalette;
 
-public class TFContainer extends JPanel{
+public class TFContainer extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private SpringLayout layout;
@@ -115,39 +115,49 @@ public class TFContainer extends JPanel{
         public void actionPerformed(ActionEvent arg0) {
             switch (nrAkcji) {
                 case 1: {
-                    // TF
+                    String date = "";
                     Map<String, Integer> occurrences = new HashMap<String, Integer>();
                     String[] array = input.getText().split(" ");
 
-                    for ( String word : array ) {
+                    for (String word : array) {
                         Integer oldCount = occurrences.get(word);
-                        if ( oldCount == null ) {
+                        if (oldCount == null) {
                             oldCount = 0;
                         }
                         occurrences.put(word, oldCount + 1);
                     }
 
-                    for(Map.Entry<String, Integer> entry : occurrences.entrySet()) {
-                        System.out.println(entry.getKey()+"/"+entry.getValue());
+                    for (Map.Entry<String, Integer> entry : occurrences.entrySet()) {
+                        System.out.println(entry.getKey() + "/" + entry.getValue());
                     }
                     //TF-IDF
                     Map<String, Integer> oc = new HashMap<String, Integer>();
 
                     String[] array2 = input.getText().split(" ");
 
-                    for ( String word : array2 ) {
+                    for (String word : array2) {
                         Integer oldCount = oc.get(word);
-                        if ( oldCount == null ) {
+                        if (oldCount == null) {
                             oldCount = 0;
                         }
                         oc.put(word, oldCount + 1);
                     }
-                    for(Map.Entry<String, Integer> entry : oc.entrySet()) {
-                        double wartosc = entry.getValue()*Math.log(4/2);
+                    int counter = 0;
+                    for (Map.Entry<String, Integer> entry : oc.entrySet()) {
+                        double wartosc = entry.getValue() * Math.log(4 / 2);
                         String slowo = entry.getKey();
-                        System.out.println("slowo: "+slowo+"; "+"frekwencja: "+wartosc);
+                        counter++;
+                        date = date + "slowo[" + counter + ']' + slowo + "; " + "frekwencja: " + wartosc + "\n";
                     }
-                };
+                    final String finalDate = date;
+                    EventQueue.invokeLater(() -> {
+                        AnalysisResults frame = new AnalysisResults("Anliza Tekstu", finalDate);
+                        frame.pack();
+                        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                        frame.setVisible(true);
+                    });
+                }
+                ;
                 break;
                 case 2: {
                     //TF
@@ -173,9 +183,10 @@ public class TFContainer extends JPanel{
                         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                         frame.setVisible(true);
                     });
-                };
+                }
+                ;
                 break;
-                case 3:{
+                case 3: {
                     final FrequencyAnalyzer frequencyAnalyzer = new FrequencyAnalyzer();
                     List<WordFrequency> wordFrequencies;
                     try {
@@ -191,15 +202,16 @@ public class TFContainer extends JPanel{
                         BufferedImage off_Image =
                                 new BufferedImage(800, 600,
                                         BufferedImage.TYPE_INT_ARGB);
-                        File outputfile = new File("saved.png");
+                        File outputfile = new File("tags-cloud.png");
                         ImageIO.write(off_Image, "png", outputfile);
-                        wordCloud.writeToFile("saved.png");
+                        wordCloud.writeToFile("tags-cloud.png");
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 
-                };
+                }
+                ;
                 break;
             }
         }
